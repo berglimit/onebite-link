@@ -1,13 +1,13 @@
-import type { Folder } from "@/lib/mock-data";
+"use client";
 
-type NewLinkFormProps = {
-  folders: Folder[];
-};
+import { useFolders } from "@/components/FolderProvider";
 
 const fieldClass =
   "field rounded-xl px-4 py-3.5 text-[17px] font-normal text-[var(--text)]";
 
-export default function NewLinkForm({ folders }: NewLinkFormProps) {
+export default function NewLinkForm() {
+  const { folders } = useFolders();
+
   return (
     <form className="flex w-full max-w-lg flex-col gap-5 self-start rounded-2xl bg-[var(--surface)] p-6 shadow-[0_2px_8px_rgba(0,0,0,0.08)]">
       <h2 className="text-xl font-bold leading-snug">새 링크 저장</h2>

@@ -19,7 +19,7 @@ export default async function FolderPage({
     <div className="flex min-h-screen flex-col">
       <Header />
       <div className="flex flex-1">
-        <Sidebar folders={folders} />
+        <Sidebar />
         <main className="flex-1 p-6">
           <LinkGrid links={folderLinks} />
         </main>

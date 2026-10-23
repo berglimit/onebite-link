@@ -52,6 +52,23 @@ a {
 .btn-primary:active {
   transform: scale(0.98);
 }
+.btn-primary:disabled {
+  background: var(--disabled);
+  color: var(--text-sub);
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-secondary {
+  background: var(--accent-soft);
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+.btn-secondary:hover {
+  background: #d4e8ff;
+}
+.btn-secondary:active {
+  transform: scale(0.98);
+}
 
 .nav-item {
   transition: background-color 0.2s ease, color 0.2s ease;
