@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import DeleteFolderModal from "@/components/DeleteFolderModal";
+import EditFolderModal from "@/components/EditFolderModal";
 import { useFolders } from "@/components/FolderProvider";
 import type { Folder } from "@/lib/mock-data";
 
@@ -16,6 +17,7 @@ export default function FolderList({ folders }: FolderListProps) {
   const pathname = usePathname();
   const router = useRouter();
   const [targetFolder, setTargetFolder] = useState<Folder | null>(null);
+  const [editTarget, setEditTarget] = useState<Folder | null>(null);
 
   const handleConfirm = () => {
     if (!targetFolder) return;
@@ -40,9 +42,30 @@ export default function FolderList({ folders }: FolderListProps) {
             </Link>
             <button
               type="button"
+              aria-label={`${folder.name} 폴더 이름 수정`}
+              onClick={() => setEditTarget(folder)}
+              className="folder-action shrink-0 rounded-lg p-1.5 text-[var(--text-sub)]"
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M12 20h9" />
+                <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z" />
+              </svg>
+            </button>
+            <button
+              type="button"
               aria-label={`${folder.name} 폴더 삭제`}
               onClick={() => setTargetFolder(folder)}
-              className="folder-delete mr-1.5 shrink-0 rounded-lg p-1.5 text-[var(--text-sub)]"
+              className="folder-action folder-delete mr-1.5 shrink-0 rounded-lg p-1.5 text-[var(--text-sub)]"
             >
               <svg
                 width="18"
@@ -65,6 +88,12 @@ export default function FolderList({ folders }: FolderListProps) {
           </li>
         ))}
       </ul>
+      {editTarget && (
+        <EditFolderModal
+          folder={editTarget}
+          onClose={() => setEditTarget(null)}
+        />
+      )}
       {targetFolder && (
         <DeleteFolderModal
           folder={targetFolder}

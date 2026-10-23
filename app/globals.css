@@ -81,17 +81,20 @@ a {
   transform: scale(0.98);
 }
 
-.folder-delete {
+.folder-action {
   opacity: 0;
   transition: opacity 0.2s ease, color 0.2s ease, background-color 0.2s ease;
 }
-.folder-row:hover .folder-delete,
-.folder-delete:focus-visible {
+.folder-row:hover .folder-action,
+.folder-action:focus-visible {
   opacity: 1;
 }
-.folder-delete:hover {
-  color: var(--error);
+.folder-action:hover {
+  color: var(--accent);
   background: var(--surface);
+}
+.folder-action.folder-delete:hover {
+  color: var(--error);
 }
 
 .nav-item {
