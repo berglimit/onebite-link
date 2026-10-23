@@ -12,7 +12,7 @@ export default function FolderList({ folders }: FolderListProps) {
         <li key={folder.id}>
           <Link
             href={`/folder/${folder.id}`}
-            className="block w-full rounded px-3 py-2 text-left text-sm hover:bg-black/5 dark:hover:bg-white/10"
+            className="nav-item block w-full rounded-xl px-3 py-2.5 text-left text-[16px] text-[var(--text)]"
           >
             {folder.name}
           </Link>

@@ -10,13 +10,17 @@ export default function LinkCard({ link }: LinkCardProps) {
       href={link.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex flex-col gap-2 rounded-lg border border-black/10 p-4 transition-shadow hover:shadow-md dark:border-white/15"
+      className="card-hover flex flex-col gap-3 rounded-2xl bg-[var(--surface)] p-5"
     >
-      <h3 className="font-semibold">{link.title}</h3>
-      <p className="text-sm text-zinc-600 dark:text-zinc-400">
+      <h3 className="text-lg font-bold leading-snug text-[var(--text)]">
+        {link.title}
+      </h3>
+      <p className="text-[15px] leading-relaxed text-[var(--text-sub)]">
         {link.description}
       </p>
-      <span className="truncate text-xs text-zinc-500">{link.url}</span>
+      <span className="w-fit max-w-full truncate rounded-lg bg-[var(--accent-soft)] px-2.5 py-1 text-sm text-[var(--accent)]">
+        {link.url}
+      </span>
     </a>
   );
 }

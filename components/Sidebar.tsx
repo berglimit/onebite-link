@@ -8,10 +8,10 @@ type SidebarProps = {
 
 export default function Sidebar({ folders }: SidebarProps) {
   return (
-    <aside className="flex w-56 shrink-0 flex-col gap-4 border-r border-black/10 p-4 dark:border-white/15">
+    <aside className="m-4 flex h-fit w-56 shrink-0 flex-col gap-3 rounded-2xl bg-[var(--surface)] p-3 shadow-[0_2px_8px_rgba(0,0,0,0.08)]">
       <Link
         href="/"
-        className="rounded bg-black/10 px-3 py-2 text-left text-sm font-semibold dark:bg-white/15"
+        className="nav-item rounded-xl bg-[var(--accent-soft)] px-3 py-2.5 text-left text-[16px] font-bold text-[var(--accent)]"
       >
         ALL
       </Link>

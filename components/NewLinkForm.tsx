@@ -5,12 +5,13 @@ type NewLinkFormProps = {
 };
 
 const fieldClass =
-  "rounded border border-black/20 bg-transparent px-3 py-2 dark:border-white/30";
+  "field rounded-xl px-4 py-3.5 text-[17px] font-normal text-[var(--text)]";
 
 export default function NewLinkForm({ folders }: NewLinkFormProps) {
   return (
-    <form className="flex w-full max-w-lg flex-col gap-4">
-      <label className="flex flex-col gap-1 text-sm font-medium">
+    <form className="flex w-full max-w-lg flex-col gap-5 self-start rounded-2xl bg-[var(--surface)] p-6 shadow-[0_2px_8px_rgba(0,0,0,0.08)]">
+      <h2 className="text-xl font-bold leading-snug">새 링크 저장</h2>
+      <label className="flex flex-col gap-2 text-[15px] font-bold text-[var(--text)]">
         링크
         <input
           type="url"
@@ -19,7 +20,7 @@ export default function NewLinkForm({ folders }: NewLinkFormProps) {
           className={fieldClass}
         />
       </label>
-      <label className="flex flex-col gap-1 text-sm font-medium">
+      <label className="flex flex-col gap-2 text-[15px] font-bold text-[var(--text)]">
         폴더
         <select name="folderId" defaultValue="" className={fieldClass}>
           <option value="" disabled>
@@ -34,7 +35,7 @@ export default function NewLinkForm({ folders }: NewLinkFormProps) {
       </label>
       <button
         type="submit"
-        className="self-end rounded-full bg-foreground px-5 py-2 text-sm font-medium text-background transition-opacity hover:opacity-80"
+        className="btn-primary rounded-xl px-5 py-3.5 text-[17px] font-bold text-white"
       >
         저장
       </button>
