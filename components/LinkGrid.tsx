@@ -1,14 +1,22 @@
+"use client";
+
 import LinkCard from "@/components/LinkCard";
-import type { LinkItem } from "@/lib/mock-data";
+import { useLinks } from "@/components/LinkProvider";
 
 type LinkGridProps = {
-  links: LinkItem[];
+  folderId?: number;
 };
 
-export default function LinkGrid({ links }: LinkGridProps) {
+export default function LinkGrid({ folderId }: LinkGridProps) {
+  const { links } = useLinks();
+  const visible =
+    folderId === undefined
+      ? links
+      : links.filter((link) => link.folderId === folderId);
+
   return (
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {links.map((link) => (
+      {visible.map((link) => (
         <LinkCard key={link.id} link={link} />
       ))}
     </div>
