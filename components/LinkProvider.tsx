@@ -6,6 +6,7 @@ import type { LinkItem } from "@/lib/mock-data";
 type LinkContextValue = {
   links: LinkItem[];
   addLink: (link: Omit<LinkItem, "id">) => void;
+  removeLink: (id: number) => void;
 };
 
 const LinkContext = createContext<LinkContextValue | null>(null);
@@ -32,5 +33,11 @@ export default function LinkProvider({
     ]);
   };
 
-  return <LinkContext value={{ links, addLink }}>{children}</LinkContext>;
+  const removeLink = (id: number) => {
+    setLinks((prev) => prev.filter((l) => l.id !== id));
+  };
+
+  return (
+    <LinkContext value={{ links, addLink, removeLink }}>{children}</LinkContext>
+  );
 }
